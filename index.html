@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic profile of Hee Guan Khor, Biomedical Engineering researcher at Tsinghua University and Medical AI Engineer at Ant Group.">
+  <meta name="theme-color" content="#09111a">
+  <meta property="og:title" content="Hee Guan Khor | Academic Profile">
+  <meta property="og:description" content="Academic profile featuring publications, honors, academic activities, and current work at Ant Group.">
+  <meta property="og:type" content="website">
+  <title>Hee Guan Khor | Academic Profile</title>
+  <style>
+    :root {
+      --bg:#000000; --bg-soft:#0b0b0f; --panel:#111216; --panel-soft:#17191f;
+      --text:#f5f5f7; --text-soft:#d2d2d7; --text-dim:#8e8e93;
+      --line:rgba(255,255,255,.09); --brand:#f5f5f7; --brand-strong:#ffffff;
+      --accent:#0a84ff; --shadow:0 24px 64px rgba(0,0,0,.34); --radius:32px;
+      --content:1280px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; color:var(--text); line-height:1.75;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(10,132,255,.16), transparent 24%),
+        radial-gradient(circle at top right, rgba(255,255,255,.06), transparent 18%),
+        linear-gradient(180deg, #020203 0%, #090a0f 46%, #030406 100%);
+    }
+    body::before {
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.42;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:32px 32px;
+    }
+    body::after {
+      content:""; position:fixed; inset:-10% -20%; z-index:-2; pointer-events:none; opacity:.34;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(10,132,255,.1), transparent 20%),
+        radial-gradient(circle at 78% 16%, rgba(255,255,255,.08), transparent 16%),
+        radial-gradient(circle at 58% 78%, rgba(10,132,255,.06), transparent 16%);
+      animation:aurora 22s ease-in-out infinite alternate;
+      filter:blur(16px);
+    }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; max-width:100%; }
+    code {
+      font-family:"Consolas","Courier New",monospace; font-size:.92em;
+      padding:.12em .4em; border-radius:6px; background:rgba(255,255,255,.06);
+    }
+    .page { width:min(calc(100% - 32px), var(--content)); margin:24px auto 72px; }
+    .site-nav {
+      position:sticky; top:14px; z-index:20; display:flex; justify-content:space-between;
+      align-items:center; gap:16px; margin-bottom:26px; padding:14px 18px;
+      border:1px solid var(--line); border-radius:999px; background:rgba(16,17,21,.72);
+      backdrop-filter:blur(22px) saturate(1.2); box-shadow:0 10px 28px rgba(0,0,0,.18);
+      animation:fade-up .7s ease both;
+    }
+    .brand-lockup,.nav-links,.hero-highlights,.hero-actions,.tag-row { display:flex; flex-wrap:wrap; }
+    .brand-lockup { align-items:center; gap:12px; min-width:0; }
+    .brand-mark {
+      width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+      font-size:.95rem; font-weight:700; color:#111216; flex:0 0 auto;
+      background:linear-gradient(180deg, #ffffff, #d7d7dc);
+      box-shadow:0 0 0 8px rgba(255,255,255,.06);
+    }
+    .brand-text strong { display:block; font-size:.98rem; letter-spacing:-.02em; font-weight:650; }
+    .brand-text span { display:block; color:var(--text-dim); font-size:.82rem; }
+    .nav-links { gap:10px; justify-content:flex-end; }
+    .nav-links a {
+      padding:8px 12px; border-radius:999px; color:var(--text-soft); font-size:.92rem;
+      transition:background .18s ease,color .18s ease,transform .18s ease;
+    }
+    .nav-links a:hover { color:var(--text); background:rgba(255,255,255,.06); transform:translateY(-1px); }
+    .nav-links .nav-cta {
+      color:#fff; font-weight:650; background:linear-gradient(180deg, #3aa0ff, var(--accent));
+    }
+    .hero {
+      position:relative; overflow:hidden; min-height:760px; isolation:isolate;
+      border-radius:38px; border:1px solid var(--line); box-shadow:var(--shadow);
+      background:linear-gradient(110deg, rgba(9,10,14,.94) 0%, rgba(9,10,14,.84) 34%, rgba(9,10,14,.52) 100%);
+    }
+    .hero::before {
+      content:""; position:absolute; inset:-8%; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(8,12,20,.28), transparent 30%),
+        url("background.jpg") center/cover no-repeat;
+      transform:scale(1.08);
+      animation:hero-pan 24s ease-in-out infinite alternate;
+      filter:brightness(.42) saturate(1) contrast(1.08);
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen;
+      background:
+        linear-gradient(90deg, rgba(8,10,14,.92) 0%, rgba(8,10,14,.84) 26%, rgba(8,10,14,.64) 48%, rgba(8,10,14,.28) 72%, rgba(8,10,14,.1) 100%),
+        linear-gradient(180deg, rgba(3,8,14,.2), rgba(3,8,14,.48)),
+        linear-gradient(120deg, rgba(255,255,255,.05), transparent 34%, rgba(10,132,255,.06) 74%, transparent 100%),
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,.18), transparent 18%),
+        radial-gradient(circle at 22% 78%, rgba(10,132,255,.16), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 30%);
+    }
+    .hero-grid {
+      position:relative; z-index:1; display:grid; gap:56px; align-items:center; min-height:760px;
+      grid-template-columns:minmax(0,1.42fr) minmax(300px,.78fr); padding:72px 68px 64px;
+    }
+    .hero-copy {
+      position:relative;
+      max-width:700px;
+      padding:44px 46px 46px;
+      border-radius:36px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(22,24,31,.72), rgba(15,16,21,.5));
+      backdrop-filter:blur(24px) saturate(1.1);
+      box-shadow:0 18px 40px rgba(0,0,0,.2);
+      animation:rise .8s ease both;
+    }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+      color:#f5f5f7; font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+    }
+    .hero h1 { margin:18px 0 16px; font-size:clamp(3rem,5.7vw,5.35rem); line-height:.92; color:#fff; letter-spacing:-.07em; font-weight:700; }
+    .hero h1 {
+      text-shadow:0 10px 30px rgba(0,0,0,.28);
+    }
+    .headline {
+      margin:0;
+      max-width:640px;
+      color:#d2d2d7;
+      font-size:clamp(1.02rem,1.3vw,1.14rem);
+      line-height:1.66;
+      font-weight:500;
+      text-shadow:none;
+    }
+    .hero-highlights,.hero-actions { gap:12px; margin-top:28px; }
+    .profile-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    .profile-link {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:44px;
+      padding:10px 14px;
+      border-radius:999px;
+      color:#e8e8ed;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      animation:fade-up .95s ease both;
+    }
+    .profile-link:hover {
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.075);
+      border-color:rgba(255,255,255,.14);
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+    .profile-icon {
+      width:20px;
+      height:20px;
+      display:block;
+      flex:0 0 auto;
+    }
+    .profile-link span {
+      font-size:.9rem;
+      font-weight:600;
+      letter-spacing:-.01em;
+    }
+    .hero-highlights span,.hero-stat,.portrait-meta-card,.stat-card,.meta-card,.list-card,.project-card {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+    }
+    .hero-highlights span {
+      padding:11px 15px; border-radius:999px; color:#e8e8ed; font-size:.9rem;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.09);
+      text-shadow:none;
+      animation:fade-up .8s ease both;
+    }
+    .hero-button {
+      display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:11px 18px;
+      border-radius:999px; font-size:.94rem; font-weight:600;
+      transition:transform .18s ease, background .18s ease, color .18s ease, border .18s ease, box-shadow .18s ease;
+      animation:fade-up .9s ease both;
+    }
+    .hero-button:hover { transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.16); }
+    .hero-button.primary {
+      color:#fff; background:linear-gradient(180deg, #3aa0ff, var(--accent));
+    }
+    .hero-button.secondary {
+      color:#f5f5f7;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+      text-shadow:none;
+    }
+    .hero-summary {
+      margin-top:36px; display:grid; gap:16px; grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+    .hero-stat {
+      padding:16px 16px 15px;
+      border-radius:22px;
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .hero-stat,.stat-card,.meta-card,.list-card,.project-card,.pub-item,.timeline-item {
+      animation:fade-up .85s ease both;
+    }
+    .hero-stat strong,.stat-card strong {
+      display:block; line-height:1; color:var(--brand-strong); margin-bottom:8px;
+    }
+    .hero-stat strong { font-size:2.35rem; letter-spacing:-.05em; }
+    .hero-stat span,.stat-card span,.meta-card p,.bio,.timeline-item,.pub-item,.list-card ul,.project-card p {
+      color:var(--text-soft);
+    }
+    .hero-stat span,.stat-card span,.meta-card p,.project-card p { font-size:.94rem; }
+    .portrait-card {
+      justify-self:end; width:min(100%,350px); padding:18px; border-radius:28px;
+      background:linear-gradient(180deg, rgba(20,22,28,.94), rgba(15,16,21,.98));
+      border:1px solid var(--line); box-shadow:0 14px 34px rgba(0,0,0,.22); animation:portrait-float 8s ease-in-out infinite, rise .95s ease .08s both;
+      align-self:center;
+    }
+    .portrait-frame {
+      overflow:hidden; border-radius:22px; aspect-ratio:3/4;
+      background:linear-gradient(180deg, rgba(255,255,255,.1), transparent 42%), #0c141d;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .portrait-frame img { width:100%; height:100%; object-fit:cover; object-position:center center; }
+    .portrait-meta { margin-top:16px; display:grid; gap:12px; }
+    .portrait-meta-card { padding:14px 16px; border-radius:16px; }
+    .portrait-meta-card strong,.meta-card h3,.list-card h3,.project-card h3 {
+      display:block; color:var(--brand-strong);
+    }
+    .portrait-meta-card strong,.meta-card h3 { font-size:.96rem; margin-bottom:4px; }
+    .portrait-meta-card span { color:var(--text-soft); font-size:.92rem; }
+    .content { position:relative; z-index:2; margin-top:-52px; }
+    .panel {
+      overflow:hidden; border-radius:var(--radius); border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(18,20,26,.94), rgba(12,13,17,.98));
+      box-shadow:var(--shadow); backdrop-filter:blur(22px) saturate(1.08);
+    }
+    .block { animation:fade-up 1s ease both; }
+    .overview-stack { display:block; }
+    .intro-main,.block { padding:56px 54px 52px; }
+    .section-title {
+      margin:0 0 20px; display:flex; align-items:center; gap:12px;
+      font-size:1.5rem; line-height:1.15; letter-spacing:-.04em; font-weight:650;
+    }
+    .section-title::before {
+      content:""; width:12px; height:12px; border-radius:50%; flex:0 0 auto;
+      background:linear-gradient(135deg, #ffffff, rgba(10,132,255,.95));
+      box-shadow:0 0 0 6px rgba(10,132,255,.1);
+    }
+    .bio { margin:0 0 28px; font-size:1rem; }
+    .timeline { display:grid; gap:14px; margin:0; }
+    .timeline-item {
+      position:relative; padding:0 0 0 26px;
+      transition:transform .24s ease, color .24s ease;
+    }
+    .timeline-item::before {
+      content:""; position:absolute; left:4px; top:12px; width:8px; height:8px; border-radius:50%;
+      background:var(--brand); box-shadow:0 0 0 4px rgba(199,171,121,.09);
+    }
+    .timeline-item::after {
+      content:""; position:absolute; left:8px; top:24px; bottom:-14px; width:1px; background:rgba(255,255,255,.08);
+    }
+    .timeline-item:last-child::after { display:none; }
+    .timeline-item:hover { transform:translateX(4px); }
+    .date { display:block; font-weight:700; color:var(--brand-strong); margin-bottom:6px; }
+    .timeline-copy { display:block; padding-right:8px; }
+    .stats,.award-grid,.project-grid { display:grid; gap:16px; }
+    .stats {
+      margin-top:0;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+    .stat-card { padding:18px 18px 16px; border-radius:18px; display:flex; flex-direction:column; }
+    .stat-card strong { font-size:1.05rem; }
+    .meta-list,.grid-sections { display:grid; gap:14px; }
+    .meta-list {
+      margin-top:0;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+    .meta-card,.list-card,.project-card { padding:16px 18px; border-radius:16px; }
+    .meta-card { display:flex; flex-direction:column; justify-content:flex-start; }
+    .project-card a {
+      color:#8fc5ff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(143,197,255,.28);
+    }
+    .project-card a:hover {
+      color:#bfdfff;
+      border-bottom-color:rgba(191,223,255,.55);
+    }
+    .research-inline {
+      margin-top:34px;
+      padding-top:30px;
+      border-top:1px solid rgba(255,255,255,.07);
+      display:grid;
+      gap:20px;
+    }
+    .core-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+    .core-card {
+      padding:20px 20px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      transition:transform .24s ease, border-color .24s ease, background .24s ease, box-shadow .24s ease;
+      animation:fade-up .85s ease both;
+    }
+    .core-card strong {
+      display:block;
+      margin-bottom:8px;
+      color:var(--brand-strong);
+      font-size:1.02rem;
+    }
+    .core-card p {
+      margin:0;
+      color:var(--text-soft);
+      font-size:.96rem;
+      line-height:1.68;
+    }
+    .hero-stat,.stat-card,.meta-card,.list-card,.project-card,.pub-item,.core-card {
+      transition:transform .24s ease, border-color .24s ease, background .24s ease, box-shadow .24s ease;
+    }
+    .grid-sections { gap:40px; margin-top:32px; }
+    .block + .block { border-top:1px solid rgba(255,255,255,.045); }
+    .section-lead { margin:0 0 28px; color:var(--text-dim); font-size:1rem; line-height:1.72; max-width:820px; }
+    .visuals-block {
+      position:relative;
+      overflow:hidden;
+    }
+    .visuals-block .section-title,
+    .visuals-block .section-lead {
+      justify-content:center;
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .visuals-block .section-title::before {
+      display:none;
+    }
+    .visuals-block::before {
+      content:""; position:absolute; inset:auto -18% 12% auto; width:380px; height:380px; border-radius:50%;
+      background:radial-gradient(circle, rgba(10,132,255,.14), transparent 70%);
+      filter:blur(10px);
+      pointer-events:none;
+    }
+    .visual-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1.48fr) minmax(280px,.58fr);
+      gap:24px;
+      align-items:stretch;
+    }
+    .visual-stack {
+      display:grid;
+      gap:20px;
+      align-content:stretch;
+    }
+    .scroller-shell {
+      position:relative;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
+        rgba(19,20,25,.72);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02), 0 16px 34px rgba(0,0,0,.14);
+    }
+    .horizontal-scroller {
+      min-height:256px;
+      padding:16px;
+      overflow:hidden;
+      overflow-y:hidden;
+      scroll-snap-type:none;
+      scrollbar-width:none;
+    }
+    .horizontal-scroller::-webkit-scrollbar,
+    .vertical-scroller::-webkit-scrollbar {
+      display:none;
+    }
+    .vertical-scroller {
+      height:532px;
+      padding:16px;
+      overflow:hidden;
+      scroll-snap-type:none;
+      scrollbar-width:none;
+    }
+    .scroll-track-horizontal {
+      display:flex;
+      gap:16px;
+      width:max-content;
+      min-width:100%;
+    }
+    .scroll-track-vertical {
+      display:grid;
+      gap:16px;
+    }
+    .archive-block .section-title,
+    .archive-block .section-lead {
+      justify-content:center;
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .archive-block .section-title::before {
+      display:none;
+    }
+    .archive-flow {
+      display:grid;
+      gap:18px;
+    }
+    .archive-row {
+      min-height:238px;
+      padding:12px 0;
+      overflow:hidden;
+    }
+    .archive-track {
+      display:flex;
+      gap:16px;
+      width:max-content;
+      min-width:100%;
+    }
+    .archive-card {
+      flex:0 0 auto;
+      height:214px;
+      padding:10px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.035);
+      box-shadow:0 12px 28px rgba(0,0,0,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .archive-card img {
+      max-height:100%;
+      max-width:360px;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      filter:saturate(1.02) contrast(1.04);
+      transition:transform .6s ease, filter .6s ease;
+    }
+    .archive-card:hover img {
+      transform:scale(1.03);
+      filter:saturate(1.08) contrast(1.08);
+    }
+    .media-card {
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+      scroll-snap-align:start;
+    }
+    .media-card.landscape {
+      width:420px;
+      min-width:420px;
+      aspect-ratio:1.72/1;
+    }
+    .media-card.portrait {
+      width:100%;
+      aspect-ratio:3/4;
+    }
+    .media-card img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .7s ease, filter .7s ease;
+      filter:saturate(1.04) contrast(1.06);
+    }
+    .media-card img.contain-photo {
+      object-fit:contain;
+      background:#0b0c10;
+      padding:8px;
+      filter:none;
+    }
+    .media-card:hover img {
+      transform:scale(1.06);
+      filter:saturate(1.12) contrast(1.12);
+    }
+    .media-card:hover img.contain-photo {
+      transform:scale(1.02);
+      filter:none;
+    }
+    .media-overlay {
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:14px 16px 14px;
+      background:linear-gradient(180deg, rgba(9,17,26,0), rgba(9,17,26,.78));
+    }
+    .media-kicker {
+      display:inline-flex;
+      padding:4px 9px;
+      margin-bottom:8px;
+      border-radius:999px;
+      font-size:.76rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#dbe9ff;
+      background:rgba(10,132,255,.16);
+      border:1px solid rgba(10,132,255,.22);
+    }
+    .media-overlay strong {
+      display:block;
+      font-size:.98rem;
+      line-height:1.35;
+      color:var(--text);
+      font-weight:600;
+    }
+    .media-overlay span {
+      display:block;
+      margin-top:2px;
+      color:var(--text-soft);
+      font-size:.84rem;
+      line-height:1.45;
+    }
+    .publication-group + .publication-group { margin-top:34px; }
+    .group-label {
+      display:inline-flex; align-items:center; gap:10px; margin-bottom:16px; padding:8px 14px;
+      border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+      color:var(--brand-strong); font-size:.88rem; font-weight:600; letter-spacing:.01em;
+    }
+    ol.pub-list { margin:0; padding-left:26px; display:grid; gap:16px; }
+    .pub-item { padding-left:4px; }
+    .pub-item:hover,
+    .hero-stat:hover,
+    .stat-card:hover,
+    .meta-card:hover,
+    .list-card:hover,
+    .project-card:hover {
+      transform:translateY(-4px);
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      box-shadow:0 14px 30px rgba(0,0,0,.14);
+    }
+    .pub-authors { display:block; color:#dfe6ee; margin-bottom:4px; }
+    .pub-authors strong {
+      display:inline-block;
+      padding:2px 9px;
+      border-radius:999px;
+      color:#ffffff;
+      background:linear-gradient(135deg, rgba(10,132,255,.92), rgba(76,168,255,.62));
+      box-shadow:0 0 0 1px rgba(255,255,255,.08), 0 8px 18px rgba(10,132,255,.18);
+      white-space:nowrap;
+    }
+    .pub-title { font-weight:700; color:var(--text); }
+    .pub-meta { color:var(--text-soft); }
+    .doi-line {
+      margin-top:8px;
+      font-size:.88rem;
+      color:var(--text-dim);
+    }
+    .doi-line a {
+      color:#8fc5ff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(143,197,255,.35);
+    }
+    .doi-line a:hover {
+      color:#bfdfff;
+      border-bottom-color:rgba(191,223,255,.6);
+    }
+    .tag-row { gap:8px; margin-top:6px; }
+    .tag {
+      padding:5px 9px; border-radius:999px; font-size:.8rem; color:#dbe9ff;
+      background:rgba(10,132,255,.14); border:1px solid rgba(10,132,255,.18);
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .tag:hover { transform:translateY(-2px); background:rgba(10,132,255,.22); border-color:rgba(10,132,255,.3); }
+    .award-grid { grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px; }
+    .list-card h3,.project-card h3 { margin:0 0 10px; font-size:1.02rem; line-height:1.5; }
+    .list-card ul { margin:0; padding-left:18px; display:grid; gap:7px; }
+    .project-grid { grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; }
+    .footer { margin-top:24px; padding:18px 8px 0; color:var(--text-dim); font-size:.9rem; text-align:center; }
+    .hero-highlights span:nth-child(1), .hero-button:nth-child(1), .hero-stat:nth-child(1), .timeline-item:nth-child(1), .stat-card:nth-child(1), .meta-card:nth-child(1), .pub-item:nth-child(1), .list-card:nth-child(1), .project-card:nth-child(1) { animation-delay:.05s; }
+    .hero-highlights span:nth-child(2), .hero-button:nth-child(2), .hero-stat:nth-child(2), .timeline-item:nth-child(2), .stat-card:nth-child(2), .meta-card:nth-child(2), .pub-item:nth-child(2), .list-card:nth-child(2), .project-card:nth-child(2) { animation-delay:.12s; }
+    .hero-highlights span:nth-child(3), .hero-stat:nth-child(3), .timeline-item:nth-child(3), .stat-card:nth-child(3), .pub-item:nth-child(3), .list-card:nth-child(3), .project-card:nth-child(3) { animation-delay:.2s; }
+    .timeline-item:nth-child(4), .stat-card:nth-child(4), .pub-item:nth-child(4), .list-card:nth-child(4) { animation-delay:.28s; }
+    .pub-item:nth-child(5) { animation-delay:.34s; }
+    .pub-item:nth-child(6) { animation-delay:.4s; }
+    .pub-item:nth-child(7) { animation-delay:.46s; }
+    .pub-item:nth-child(8) { animation-delay:.52s; }
+    .pub-item:nth-child(9) { animation-delay:.58s; }
+    .pub-item:nth-child(10) { animation-delay:.64s; }
+    .pub-item:nth-child(11) { animation-delay:.7s; }
+    @keyframes rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fade-up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes hero-pan {
+      0% { transform:scale(1.08) translate3d(-1.5%, -1%, 0); }
+      50% { transform:scale(1.13) translate3d(1.6%, 1.2%, 0); }
+      100% { transform:scale(1.1) translate3d(-.6%, 2%, 0); }
+    }
+    @keyframes portrait-float {
+      0%, 100% { transform:translateY(0) rotate(0deg); }
+      50% { transform:translateY(-10px) rotate(-.6deg); }
+    }
+    @keyframes aurora {
+      0% { transform:translate3d(-2%, -1%, 0) scale(1); }
+      50% { transform:translate3d(2%, 1%, 0) scale(1.04); }
+      100% { transform:translate3d(-1%, 2%, 0) scale(1.08); }
+    }
+    @keyframes marquee-x {
+      from { transform:translateX(0); }
+      to { transform:translateX(calc(-50% - 9px)); }
+    }
+    @keyframes marquee-y {
+      from { transform:translateY(0); }
+      to { transform:translateY(calc(-50% - 9px)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
+    @media (max-width:1120px) {
+      .hero-grid,.award-grid,.project-grid,.visual-grid,.meta-list { grid-template-columns:1fr; }
+      .portrait-card { justify-self:start; }
+      .vertical-scroller { height:480px; }
+    }
+    @media (max-width:760px) {
+      .page { width:min(calc(100% - 16px), var(--content)); margin:10px auto 32px; }
+      .site-nav { top:8px; border-radius:24px; padding:12px 14px; align-items:flex-start; flex-direction:column; }
+      .nav-links { justify-content:flex-start; }
+      .hero { min-height:auto; border-radius:26px; }
+      .hero-grid { min-height:auto; gap:28px; padding:28px 20px 26px; }
+      .hero-summary,.stats,.core-grid { grid-template-columns:1fr; }
+      .content { margin-top:-10px; }
+      .intro-main,.intro-side,.block { padding:32px 22px; }
+      .hero h1 { font-size:2.45rem; }
+      .date { min-width:0; display:block; margin-bottom:6px; }
+      .horizontal-scroller { min-height:220px; padding:14px; }
+      .media-card.landscape { width:300px; min-width:300px; }
+      .vertical-scroller { height:380px; padding:14px; }
+      .archive-row { min-height:188px; }
+      .archive-card { height:168px; padding:8px; }
+      .archive-card img { max-width:280px; }
+    }
+    @media print {
+      body { background:#fff; color:#111; }
+      body::before,.site-nav,.footer { display:none; }
+      .page { width:100%; margin:0; }
+      .hero,.panel { box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="site-nav" aria-label="Primary">
+      <div class="brand-lockup">
+        <div class="brand-mark">HK</div>
+        <div class="brand-text">
+          <strong>Hee Guan Khor</strong>
+          <span>Academic Profile and Bibliography</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#publications">Publications</a>
+        <a href="#honors">Honors</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Academic Portfolio</div>
+          <h1>Hee Guan Khor</h1>
+          <p class="headline">
+            Ph.D. in Biomedical Engineering, Tsinghua University, with degree completion scheduled for June 2026;
+            currently Medical AI Engineer at Ant Group, with work spanning medical image analysis, deformable
+            registration, radiotherapy target delineation, and intelligent minimally invasive diagnostic and
+            therapeutic systems.
+          </p>
+          <div class="hero-highlights">
+            <span>Tsinghua University, School of Biomedical Engineering</span>
+            <span>Ant Group, Medical AI Engineer</span>
+            <span>Medical Image Analysis, Radiotherapy AI, Surgical Robotics</span>
+          </div>
+          <div class="profile-links">
+            <a class="profile-link" href="https://scholar.google.com/citations?user=5NNSU28AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+              <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="12" fill="#4285F4"></circle>
+                <path d="M12 4 3 9l9 5 7-3.89V16h2V9L12 4Z" fill="#fff"></path>
+                <path d="M7.2 12.4v3.2c0 .7 2.1 2.4 4.8 2.4s4.8-1.7 4.8-2.4v-3.2L12 15l-4.8-2.6Z" fill="#DCE8FF"></path>
+              </svg>
+              <span>Google Scholar</span>
+            </a>
+            <a class="profile-link" href="https://orcid.org/0000-0002-4935-7815" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
+              <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="12" fill="#A6CE39"></circle>
+                <circle cx="8" cy="8" r="1.6" fill="#fff"></circle>
+                <path d="M6.9 10.8h2.1v6.2H6.9zM10.6 10.8h3.2c3 0 4.7 1.4 4.7 4.4 0 3.1-2 4.3-4.8 4.3h-3.1v-8.7Zm2.1 1.9v4.9h1c1.8 0 2.7-.7 2.7-2.4 0-1.8-.9-2.5-2.7-2.5h-1Z" fill="#fff"></path>
+              </svg>
+              <span>ORCID</span>
+            </a>
+            <a class="profile-link" href="https://www.webofscience.com/wos/author/record/LZE-5495-2025" target="_blank" rel="noopener noreferrer" aria-label="Web of Science profile">
+              <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wosGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FF6A00"></stop>
+                    <stop offset="100%" stop-color="#7C4DFF"></stop>
+                  </linearGradient>
+                </defs>
+                <circle cx="12" cy="12" r="12" fill="url(#wosGrad)"></circle>
+                <path d="M6 8.2h2.1l1.4 5 1.6-5h1.9l1.7 5 1.3-5H18l-2.4 7.6h-1.8L12 10.7l-1.8 5.1H8.4L6 8.2Z" fill="#fff"></path>
+              </svg>
+              <span>Web of Science</span>
+            </a>
+            <a class="profile-link" href="mailto:xuxichiy19@tsinghua.org.cn" aria-label="Email address">
+              <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="12" fill="#5AC8FA"></circle>
+                <path d="M6.2 8.1h11.6c.7 0 1.2.5 1.2 1.2v5.4c0 .7-.5 1.2-1.2 1.2H6.2c-.7 0-1.2-.5-1.2-1.2V9.3c0-.7.5-1.2 1.2-1.2Z" fill="#fff"></path>
+                <path d="m6 9 6 4.2L18 9" fill="none" stroke="#5AC8FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Email</span>
+            </a>
+          </div>
+          <div class="hero-summary">
+            <div class="hero-stat">
+              <strong>19</strong>
+              <span>academic papers and conference contributions</span>
+            </div>
+            <div class="hero-stat">
+              <strong>20</strong>
+              <span>major scholarships, academic distinctions, innovation awards, and competition honors</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="portrait-card">
+          <div class="portrait-frame">
+            <img src="1.png" alt="Portrait of Hee Guan Khor">
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content panel" id="overview">
+      <div class="overview-stack">
+        <div class="intro-main">
+          <h2 class="section-title">Biography</h2>
+          <p class="bio">
+            Hee Guan Khor received the Bachelor of Engineering degree in Biomedical Engineering from Chongqing
+            University in June 2019 and the Master of Engineering degree in Biomedical Engineering from Tsinghua
+            University in June 2022. He subsequently pursued doctoral training in Biomedical Engineering at
+            Tsinghua University, with Ph.D. degree completion scheduled for June 2026. His academic work has focused
+            on clinically oriented medical AI, including medical image analysis, radiotherapy intelligence, and
+            image-guided intervention, and he is currently serving as a Medical AI Engineer at Ant Group.
+          </p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="date">Sep 2015 - Jun 2019</span>
+              <span class="timeline-copy">Undergraduate study in Biomedical Engineering at Chongqing University; awarded the Bachelor of Engineering degree.</span>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Sep 2019 - Jun 2022</span>
+              <span class="timeline-copy">Master's study in Biomedical Engineering at Tsinghua University; awarded the Master of Engineering degree.</span>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Sep 2022 - Jun 2026</span>
+              <span class="timeline-copy">Doctoral study in Biomedical Engineering at Tsinghua University, with Ph.D. degree completion scheduled for June 2026.</span>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Current</span>
+              <span class="timeline-copy">Medical AI Engineer at Ant Group.</span>
+            </div>
+          </div>
+          <div class="research-inline">
+            <h2 class="section-title">Core Areas</h2>
+            <div class="core-grid">
+              <div class="core-card">
+                <strong>Medical Image Intelligence</strong>
+                <p>Research centered on medical image segmentation, deformable registration, multimodal fusion, and ultrasound image enhancement, with an emphasis on robust learning-based methods for clinically meaningful imaging analysis.</p>
+              </div>
+              <div class="core-card">
+                <strong>Radiotherapy and Image-Guided AI</strong>
+                <p>Development of AI models for radiotherapy target delineation, treatment-oriented image understanding, and anatomically informed decision support in translational clinical workflows.</p>
+              </div>
+              <div class="core-card">
+                <strong>Interventional and Surgical Computing</strong>
+                <p>Work spanning intelligent minimally invasive diagnosis and therapy, robotic perception, and image-guided intervention systems that connect computational modeling with procedural applications.</p>
+              </div>
+              <div class="core-card">
+                <strong>Research Translation and Engineering</strong>
+                <p>Current efforts bridge academic medical AI research with practical engineering deployment, linking university-based innovation with product-oriented medical AI development at Ant Group.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-sections">
+        <section class="block visuals-block" id="visuals">
+          <h2 class="section-title">Academic Activities and Engagement</h2>
+          <div class="visual-grid">
+            <div class="visual-stack">
+              <div class="scroller-shell horizontal-scroller">
+                <div class="scroll-track-horizontal">
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image54.jpg" alt="Tsinghua student entrepreneurship exchange" loading="lazy" style="object-position:52% 42%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Exchange</span>
+                      <strong>Tsinghua student entrepreneurship exchange</strong>
+                      <span>Student representative speech during the visit of Minister Yang Wangping</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image50.jpg" alt="AI application innovation conference presentation" loading="lazy" style="object-position:50% 38%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Presentation</span>
+                      <strong>2025 Northwestwang AI Application Innovation Ecosystem Conference</strong>
+                      <span>Conference presentation scene</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image56.jpg" alt="Innovation and entrepreneurship training camp presentation" loading="lazy" style="object-position:50% 42%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Innovation</span>
+                      <strong>Innovation and Entrepreneurship Training Camp</strong>
+                      <span>Presentation on AI-enabled medical application pathways</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image28.jpg" alt="Academic presentation at Tsinghua University" loading="lazy" style="object-position:50% 45%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Forum</span>
+                      <strong>Academic presentation at Tsinghua University</strong>
+                      <span>Talk on intelligent medical cognition and clinical deployment pathways</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image29.jpg" alt="Roadshow presentation on smart healthcare technology" loading="lazy" style="object-position:50% 42%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Roadshow</span>
+                      <strong>Roadshow presentation on smart healthcare technology</strong>
+                      <span>Professional demonstration of AI-enabled medical imaging solutions</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="scroller-shell horizontal-scroller">
+                <div class="scroll-track-horizontal">
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image46.jpg" alt="Professional exchange with Malaysian medical partners" loading="lazy" style="object-position:50% 34%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Collaboration</span>
+                      <strong>Discussion with Malaysian health and hospital representatives</strong>
+                      <span>AI-enabled integrated oncology diagnosis and therapy exchange</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image51.jpg" alt="Clinical and industry exchange group photograph" loading="lazy" style="object-position:50% 28%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Network</span>
+                      <strong>Professional exchange with clinical and industry collaborators</strong>
+                      <span>Site visit and radiotherapy workflow discussion in Malaysia</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image59.png" alt="School of Medicine group photograph" loading="lazy" style="object-position:50% 30%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Community</span>
+                      <strong>School of Medicine, Tsinghua University</strong>
+                      <span>Academic community group photo and cohort gathering</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image4.JPG" alt="Meituan Group exchange visit" loading="lazy" style="object-position:50% 34%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Visit</span>
+                      <strong>Meituan Group exchange visit</strong>
+                      <span>Industry visit and international student exchange photograph</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image6.jpg" alt="Innovation and entrepreneurship dialogue session" loading="lazy" style="object-position:50% 44%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Dialogue</span>
+                      <strong>Innovation and entrepreneurship dialogue session</strong>
+                      <span>Research and venture discussion with academic mentors and student founders</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image53.jpg" alt="Roadshow on clinical application scenarios" loading="lazy" style="object-position:50% 42%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Demo</span>
+                      <strong>Roadshow on clinical application scenarios</strong>
+                      <span>Live presentation of image-guided intervention use cases</span>
+                    </div>
+                  </article>
+                  <article class="media-card landscape">
+                    <img src="pic/hd/image41.jpg" alt="School of Medicine class and laboratory group photograph" loading="lazy" style="object-position:50% 38%;">
+                    <div class="media-overlay">
+                      <span class="media-kicker">Group</span>
+                      <strong>School of Medicine class and laboratory group photograph</strong>
+                      <span>Academic cohort gathering at Tsinghua University School of Medicine</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div class="scroller-shell vertical-scroller">
+              <div class="scroll-track-vertical">
+                <article class="media-card portrait">
+                  <img src="pic/hd/image17.jpg" alt="Award presentation photograph" loading="lazy" style="object-position:50% 34%;">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Award</span>
+                    <strong>Best Paper Award and Best Oral Presentation Award</strong>
+                    <span>2nd International Conference on Smart Healthcare and Wearable Intelligent Devices</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img src="pic/hd/image55.jpg" alt="Seminar presentation photograph" loading="lazy" style="object-position:50% 44%;">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Seminar</span>
+                    <strong>Oral presentation at the First Graduate Academic Forum of the School of Biomedical Engineering</strong>
+                    <span>Tsinghua Doctoral Academic Forum, Session 769</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image18.jpg" alt="Best oral presentation certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Best Oral Presentation Award</strong>
+                    <span>SHWID 2025</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image19.jpg" alt="Best paper award certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Best Paper Award</strong>
+                    <span>SHWID 2025</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image30.jpg" alt="Qingxing Cup innovation challenge certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Qingxing Cup Large Model Application Innovation Challenge</strong>
+                    <span>Seed Group Merit Award, Tsinghua University</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image33.jpg" alt="Tsinghua Med-Engineering innovation competition certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Tsinghua Med-Engineering Innovation Competition</strong>
+                    <span>Second Prize in the translational track</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image13.jpg" alt="Outstanding Master's Graduate certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Outstanding Master's Graduate</strong>
+                    <span>Tsinghua University, 2022</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image15.jpg" alt="Outstanding International Graduate certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Outstanding International Graduate</strong>
+                    <span>Chongqing University, 2019</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image39.jpg" alt="Hybrid teaching environment and application test pass certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Hybrid Teaching Environment and Application Test Pass Certificate</strong>
+                    <span>Tsinghua University</span>
+                  </div>
+                </article>
+                <article class="media-card portrait">
+                  <img class="contain-photo" src="pic/hd/image40.jpg" alt="Teaching assistant qualification certificate" loading="lazy">
+                  <div class="media-overlay">
+                    <span class="media-kicker">Certificate</span>
+                    <strong>Teaching Assistant Qualification Certificate</strong>
+                    <span>Tsinghua University Graduate School</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block archive-block" id="archive">
+          <h2 class="section-title">Certificates and Honors Archive</h2>
+          <div class="archive-flow" id="archive-flow"></div>
+        </section>
+
+        <section class="block" id="publications">
+          <h2 class="section-title">Publications and Scholarly Contributions</h2>
+          <p class="section-lead">Notation: <strong>#</strong> indicates co-first authorship and <strong>*</strong> indicates corresponding author.</p>
+
+          <div class="publication-group">
+            <div class="group-label">First-Author and Co-First-Author Contributions</div>
+            <ol class="pub-list">
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Guochen Ning, Yihua Sun, Xu Lu, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">Anatomically constrained and attention-guided deep feature fusion for joint segmentation and deformable medical image registration</span><span class="pub-meta">. Medical Image Analysis, 2023, 88: 102811.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1016/j.media.2023.102811" target="_blank" rel="noopener noreferrer">10.1016/j.media.2023.102811</a></div>
+                <div class="tag-row"><span class="tag">SCI</span><span class="tag">Impact Factor 11.8</span><span class="tag">Top-tier CAS Q1 Journal</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor#</strong>, Xin Yang#, Yihua Sun, Sijuan Huang, Yingni Wang, Jie Wang, Shaobin Wang, Lu Bai, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">RT-SAM: Visual-Prompt Fusion and Uncertainty Enhancement for Nasopharyngeal Carcinoma Radiotherapy Target Delineation</span><span class="pub-meta">. IEEE Journal of Biomedical and Health Informatics, 2026, accepted.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/JBHI.2026.3669979" target="_blank" rel="noopener noreferrer">10.1109/JBHI.2026.3669979</a></div>
+                <div class="tag-row"><span class="tag">SCI</span><span class="tag">Impact Factor 6.8</span><span class="tag">Top-tier CAS Q1 Journal</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor#</strong>, Guochen Ning#, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">Ultrasound speckle reduction using wavelet-based generative adversarial network</span><span class="pub-meta">. IEEE Journal of Biomedical and Health Informatics, 2022, 26(7): 3080-3091.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/JBHI.2022.3144628" target="_blank" rel="noopener noreferrer">10.1109/JBHI.2022.3144628</a></div>
+                <div class="tag-row"><span class="tag">SCI</span><span class="tag">Impact Factor 6.8</span><span class="tag">Top-tier CAS Q1 Journal</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor#</strong>, Xin Yang#, Yihua Sun, Jie Wang, Sijuan Huang, Shaobin Wang, Bai Lu, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">Unified prompt-visual interactive segmentation of clinical target volume in CT for nasopharyngeal carcinoma with prior anatomical information</span><span class="pub-meta">. In: MICCAI 2024, Lecture Notes in Computer Science 15009, 2024: 659-669.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1007/978-3-031-72114-4_63" target="_blank" rel="noopener noreferrer">10.1007/978-3-031-72114-4_63</a></div>
+                <div class="tag-row"><span class="tag">EI</span><span class="tag">Early Accept 11%</span><span class="tag">CCF A Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Fang Chen, Hongen Liao*.</span>
+                <span class="pub-title">CFM-SAM2: CNN-Prompt-Guided Segment Anything 2 with Cross-Modal Fusion and Contextual Feature Assimilation for Gross Target Volume Segmentation in Nasopharyngeal Carcinoma</span><span class="pub-meta">. In: Proceedings of the 2025 2nd International Conference on Smart Healthcare and Wearable Intelligent Devices, 2025: 149-154.</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Oral Presentation</span><span class="tag">Best Paper</span><span class="tag">Best Oral Presentation</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Guochen Ning, Ting Wang, Yingang Wen, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">Anatomically constrained deformable 3D reconstruction of intraoperative uterus from preoperative MRI data on uterine fibroid treatment</span><span class="pub-meta">. Computer Methods in Biomechanics and Biomedical Engineering: Imaging &amp; Visualization, 2022, 10(4): 434-440.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1080/21681163.2021.1997643" target="_blank" rel="noopener noreferrer">10.1080/21681163.2021.1997643</a></div>
+                <div class="tag-row"><span class="tag">EI</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Jie Wang, Hongen Liao*.</span>
+                <span class="pub-title">G2CNet: Clinical target volume segmentation based on gross tumor volume via multi-task learning for nasopharyngeal carcinoma radiotherapy</span><span class="pub-meta">. In: The 20th Asian Conference on Computer Aided Surgery (ACCAS 2024).</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Oral Presentation</span><span class="tag">CCF B Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Jie Wang, Hongen Liao*.</span>
+                <span class="pub-title">TargetSegNet: Gross Tumor Volume-Driven Clinical Target Volume Segmentation for Nasopharyngeal Carcinoma Radiotherapy</span><span class="pub-meta">. Tsinghua University Graduate Academic Forum of the School of Biomedical Engineering, 2024.</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Oral Presentation</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">Multi-task learning for deformable registration of medical images with anatomical constraint</span><span class="pub-meta">. In: The 18th Asian Conference on Computer Aided Surgery (ACCAS 2022).</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Oral Presentation</span><span class="tag">CCF B Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Guochen Ning, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">Free-breathing organ motion models of 3D abdominal MRI with conditional generative adversarial networks</span><span class="pub-meta">. In: The 17th Asian Conference on Computer Aided Surgery (ACCAS 2021).</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Poster</span><span class="tag">CCF B Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors"><strong>Hee Guan Khor</strong>, Guochen Ning, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">WGAN-SNR: Wavelet-based generative adversarial network for speckle noise reduction in ultrasound images</span><span class="pub-meta">. In: The 16th Asian Conference on Computer Aided Surgery (ACCAS 2020).</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Poster</span><span class="tag">CCF B Conference</span></div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="publication-group">
+            <div class="group-label">Collaborative Contributions</div>
+            <ol class="pub-list" start="12">
+              <li class="pub-item">
+                <span class="pub-authors">Jie Wang#, <strong>Hee Guan Khor#</strong>, Yingni Wang#, Xueling Wei, Yihua Sun, Yiguang Yang, Xu Lu, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">Autonomous local navigation of spring-based continuum choledochoscopes for cholecystolithotomy</span><span class="pub-meta">. IEEE Transactions on Automation Science and Engineering, 2025, 22: 22938-22949.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/TASE.2025.3615597" target="_blank" rel="noopener noreferrer">10.1109/TASE.2025.3615597</a></div>
+                <div class="tag-row"><span class="tag">SCI</span><span class="tag">Impact Factor 6.4</span><span class="tag">High-level CAS Q2 Journal</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Xu Lu, <strong>Hee Guan Khor</strong>, Yihua Sun, Xinran Zhang, Hongen Liao*.</span>
+                <span class="pub-title">ANR-Net: Attention-guided non-local residual network for thyroid segmentation in ultrasound image</span><span class="pub-meta">. In: 2023 IEEE 20th International Symposium on Biomedical Imaging (ISBI 2023), 2023: 1-5.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/ISBI53787.2023.10230548" target="_blank" rel="noopener noreferrer">10.1109/ISBI53787.2023.10230548</a></div>
+                <div class="tag-row"><span class="tag">EI</span><span class="tag">CCF B Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Yihua Sun, <strong>Hee Guan Khor</strong>, Sijuan Huang, Qi Chen, Shaobin Wang, Xin Yang, Hongen Liao*.</span>
+                <span class="pub-title">Second-course esophageal gross tumor volume segmentation in CT with prior anatomical and radiotherapy information</span><span class="pub-meta">. In: MICCAI 2023, LNCS 14224, 2023: 511-520.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1007/978-3-031-43990-2_48" target="_blank" rel="noopener noreferrer">10.1007/978-3-031-43990-2_48</a></div>
+                <div class="tag-row"><span class="tag">EI</span><span class="tag">CCF A Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Yihua Sun, <strong>Hee Guan Khor</strong>, Yuanzheng Wang, Zhuhao Wang, Hongliang Zhao, Yu Zhang, Longfei Ma, Zhuozhao Zheng, Hongen Liao*.</span>
+                <span class="pub-title">Continually tuning a large language model for multi-domain radiology report generation</span><span class="pub-meta">. In: MICCAI 2024, LNCS 15005, 2024: 177-187.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1007/978-3-031-72086-4_17" target="_blank" rel="noopener noreferrer">10.1007/978-3-031-72086-4_17</a></div>
+                <div class="tag-row"><span class="tag">EI</span><span class="tag">CCF A Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Jie Wang, Yihua Sun, <strong>Hee Guan Khor</strong>, Xu Lu, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">Decoupled spring-based two-segment continuum manipulator for minimally invasive surgery</span><span class="pub-meta">. In: The 20th Asian Conference on Computer Aided Surgery (ACCAS 2024).</span>
+                <div class="doi-line">DOI: Not available.</div>
+                <div class="tag-row"><span class="tag">Oral Presentation</span><span class="tag">CCF B Conference</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Jie Wang, Jiaqi Liu, <strong>Hee Guan Khor</strong>, Tianqi Huang, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">Cone-based automatic instrument interchange interface for autonomous robotic surgical system</span><span class="pub-meta">. In: 2024 International Conference on Biomimetic Intelligence and Robotics &amp; Medical Robotics Forum (ICBIR 2024).</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1016/j.procs.2024.11.007" target="_blank" rel="noopener noreferrer">10.1016/j.procs.2024.11.007</a></div>
+                <div class="tag-row"><span class="tag">Poster</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Xu Lu, Zengzhen Cui, Yihua Sun, <strong>Hee Guan Khor</strong>, Ao Sun, Longfei Ma, Fang Chen, Shan Gao, Yun Tian, Fang Zhou, et al.</span>
+                <span class="pub-title">Better rough than scarce: Proximal femur fracture segmentation with rough annotations</span><span class="pub-meta">. IEEE Transactions on Medical Imaging, 2024, 43(9): 3240-3252.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/TMI.2024.3392854" target="_blank" rel="noopener noreferrer">10.1109/TMI.2024.3392854</a></div>
+                <div class="tag-row"><span class="tag">SCI</span><span class="tag">Impact Factor 9.8</span><span class="tag">Top-tier CAS Q1 Journal</span></div>
+              </li>
+              <li class="pub-item">
+                <span class="pub-authors">Jie Wang, Xu Lu, Yihua Sun, <strong>Hee Guan Khor</strong>, Xueling Wei, Guochen Ning, Longfei Ma, Hongen Liao*.</span>
+                <span class="pub-title">SPEVA: Stiffness prediction from environmental visual variation for autonomous robot-assisted soft tissue manipulation</span><span class="pub-meta">. In: 2024 IEEE International Symposium on Biomedical Imaging (ISBI 2024), 2024: 1-5.</span>
+                <div class="doi-line">DOI: <a href="https://doi.org/10.1109/ISBI56570.2024.10635411" target="_blank" rel="noopener noreferrer">10.1109/ISBI56570.2024.10635411</a></div>
+                <div class="tag-row"><span class="tag">EI</span><span class="tag">CCF B Conference</span></div>
+              </li>
+            </ol>
+          </div>
+        </section>
+        <section class="block" id="honors">
+          <h2 class="section-title">Honors and Recognition</h2>
+          <div class="award-grid">
+            <div class="list-card">
+              <h3>Scholarships and Fellowships</h3>
+              <ul>
+                <li>2022 Tsinghua University Xinghua Scholar Scholarship (one of only 8 recipients university-wide)</li>
+                <li>2025 School-Level Scholarship, School of Biomedical Engineering, Tsinghua University</li>
+                <li>2024 First-Class Comprehensive Excellence Scholarship for Graduate Students, School of Biomedical Engineering</li>
+                <li>2021 Second-Class Comprehensive Excellence Scholarship for Graduate Students, School of Medicine / School of Pharmacy / School of Public Health</li>
+                <li>2021 Tsinghua University International Graduate Tuition Scholarship</li>
+                <li>2020 Tsinghua University International Graduate Tuition Scholarship</li>
+                <li>2023 Academic Rising Star Award, Laboratory of Minimally Invasive Diagnosis and Therapy and 3D Imaging</li>
+                <li>2022 Academic Rising Star Award, Laboratory of Minimally Invasive Diagnosis and Therapy and 3D Imaging</li>
+                <li>2021 Academic Achievement Award, Laboratory of Minimally Invasive Diagnosis and Therapy and 3D Imaging</li>
+                <li>2020 Academic Rising Star Award, Laboratory of Minimally Invasive Diagnosis and Therapy and 3D Imaging</li>
+                <li>2015 President Scholarship, Chongqing University</li>
+              </ul>
+            </div>
+            <div class="list-card">
+              <h3>Academic Recognition</h3>
+              <ul>
+                <li>2022 Recognized as a Xinghua Scholar</li>
+                <li>2022 Tsinghua University Outstanding Master's Thesis (Academic Degree)</li>
+                <li>2022 Tsinghua University Outstanding Master's Graduate</li>
+                <li>2019 Outstanding International Graduate, Chongqing University</li>
+                <li>2019 Outstanding Undergraduate Thesis / Graduation Design, Chongqing University</li>
+                <li>2025 Double winner of Best Paper Award and Best Oral Presentation Award at SHWID 2025</li>
+              </ul>
+            </div>
+            <div class="list-card">
+              <h3>Innovation and Entrepreneurship Recognition</h3>
+              <ul>
+                <li>2025 First Prize, Beijing Division, China International College Students' Innovation and Entrepreneurship Competition</li>
+                <li>2025 Tsinghua University Top 10 Student Innovation and Entrepreneurship Team</li>
+                <li>2024 First Prize, Beijing Division, China International College Students' Innovation and Entrepreneurship Competition</li>
+                <li>2024 Tsinghua University Top 10 Student Innovation and Entrepreneurship Team</li>
+                <li>2023 First Prize, Beijing Division, 9th China International "Internet+" College Students Innovation and Entrepreneurship Competition</li>
+                <li>2023 Tsinghua University Top 10 Student Innovation and Entrepreneurship Team</li>
+                <li>2025 Merit Award, Seed Track, 2nd "Qingxing Cup" Tsinghua Large Model Application Innovation Challenge</li>
+                <li>2025 Third Prize, 66th Tsinghua "Chuang+" Innovation and Entrepreneurship Competition</li>
+                <li>2024 Silver Award, "Youth Innovation Beijing" Capital University Entrepreneurship Plan Competition (Challenge Cup)</li>
+                <li>2023 Second Prize, Translational Track, 2nd Tsinghua Medical-Engineering Innovation Competition</li>
+                <li>2023 Merit Award, Seed Group Final, 25th "Kunshan Cup" Tsinghua Entrepreneurship Competition</li>
+                <li>2023 Grand Prize, TIE2 International Innovation Acceleration Camp Project</li>
+                <li>2022 Gold Award, Tsinghua X2 Digital Healthcare Marathon</li>
+              </ul>
+            </div>
+            <div class="list-card">
+              <h3>Athletic Recognition</h3>
+              <ul>
+                <li>2025 Fourth Place, Men's 105 kg Division, 3rd Tsinghua University "Boundless Strength" Powerlifting Competition</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion) return;
+
+      const archiveImages = [
+        "hdphoto2.png", "hdphoto3.png",
+        "image12.png", "image14.png", "image22.png", "image23.png", "image24.png",
+        "image25.png", "image26.png", "image27.png", "image31.png", "image32.png",
+        "image34.png", "image35.png"
+      ];
+
+      const archiveFlow = document.querySelector("#archive-flow");
+      if (archiveFlow) {
+        const laneCount = 3;
+        const lanes = Array.from({ length: laneCount }, () => []);
+        archiveImages.forEach((image, index) => {
+          lanes[index % laneCount].push(image);
+        });
+
+        const minLaneLength = 7;
+        const expandedLanes = lanes.map((lane) => {
+          if (lane.length === 0) return lane;
+          const expanded = [...lane];
+          let cursor = 0;
+          while (expanded.length < minLaneLength) {
+            expanded.push(lane[cursor % lane.length]);
+            cursor += 1;
+          }
+          return expanded;
+        });
+
+        archiveFlow.innerHTML = expandedLanes.map((lane) => `
+          <div class="scroller-shell horizontal-scroller archive-row">
+            <div class="archive-track">
+              ${lane.map((image) => `
+                <article class="archive-card">
+                  <img src="pic/hd/${image}" alt="${image.replace(/\.[^.]+$/, "").replace(/image/i, "Archive image ")}" loading="lazy">
+                </article>
+              `).join("")}
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const duplicateTrack = (track) => {
+        if (!track || track.dataset.loopReady === "true") return;
+        const originals = Array.from(track.children);
+        track.dataset.loopBoundaryIndex = String(originals.length);
+        originals.forEach((item) => {
+          track.appendChild(item.cloneNode(true));
+        });
+        track.dataset.loopReady = "true";
+      };
+
+      document.querySelectorAll(".scroll-track-horizontal, .scroll-track-vertical, .archive-track").forEach(duplicateTrack);
+
+      const getLoopSize = (track, axis) => {
+        if (!track) return 0;
+        const boundaryIndex = Number(track.dataset.loopBoundaryIndex || 0);
+        const boundaryItem = track.children[boundaryIndex];
+        if (!boundaryItem) {
+          return axis === "x" ? Math.max(0, track.scrollWidth / 2) : Math.max(0, track.scrollHeight / 2);
+        }
+        return axis === "x" ? boundaryItem.offsetLeft : boundaryItem.offsetTop;
+      };
+
+      const createState = (element, track, axis, direction, speed) => {
+        const loopSize = getLoopSize(track, axis);
+        const startAtEnd = direction < 0 && loopSize > 0;
+        return {
+          element,
+          track,
+          axis,
+          position: startAtEnd ? loopSize : 0,
+          direction,
+          speed,
+          paused: false
+        };
+      };
+
+      const states = [
+        ...Array.from(document.querySelectorAll(".visual-stack .horizontal-scroller"), (element, index) =>
+          createState(element, element.querySelector(".scroll-track-horizontal"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.024 : 0.022)),
+        ...Array.from(document.querySelectorAll(".vertical-scroller"), (element) =>
+          createState(element, element.querySelector(".scroll-track-vertical"), "y", 1, 0.018)),
+        ...Array.from(document.querySelectorAll(".archive-row"), (element, index) =>
+          createState(element, element.querySelector(".archive-track"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.02 : 0.018))
+      ];
+
+      states.forEach((state) => {
+        if (state.axis === "x") {
+          state.element.scrollLeft = state.position;
+        } else {
+          state.element.scrollTop = state.position;
+        }
+        state.element.addEventListener("mouseenter", () => { state.paused = true; });
+        state.element.addEventListener("mouseleave", () => { state.paused = false; });
+        state.element.addEventListener("focusin", () => { state.paused = true; });
+        state.element.addEventListener("focusout", () => { state.paused = false; });
+      });
+
+      let lastTime = 0;
+      const tick = (time) => {
+        if (!lastTime) lastTime = time;
+        const delta = Math.min(32, time - lastTime);
+        lastTime = time;
+
+        states.forEach((state) => {
+          const loopSize = getLoopSize(state.track, state.axis);
+          if (state.paused || loopSize <= 0) return;
+
+          state.position += state.direction * state.speed * delta;
+          if (state.position >= loopSize) {
+            state.position -= loopSize;
+          } else if (state.position < 0) {
+            state.position += loopSize;
+          }
+
+          if (state.axis === "x") {
+            state.element.scrollLeft = state.position;
+          } else {
+            state.element.scrollTop = state.position;
+          }
+        });
+
+        window.requestAnimationFrame(tick);
+      };
+
+      window.requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>

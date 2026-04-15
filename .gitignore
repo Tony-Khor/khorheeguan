@@ -1,0 +1,6 @@
+supporting-material.pdf
+*.pdf
+pic/extracted/
+pic/pptx_unpacked/
+pic/pic.pptx
+pic/hd/*.wdp
