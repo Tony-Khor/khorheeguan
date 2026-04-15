@@ -634,21 +634,79 @@
     }
     @media (max-width:760px) {
       .page { width:min(calc(100% - 16px), var(--content)); margin:10px auto 32px; }
-      .site-nav { top:8px; border-radius:24px; padding:12px 14px; align-items:flex-start; flex-direction:column; }
-      .nav-links { justify-content:flex-start; }
+      .site-nav { top:8px; border-radius:24px; padding:14px; align-items:stretch; flex-direction:column; gap:14px; }
+      .brand-lockup { width:100%; justify-content:center; text-align:center; }
+      .brand-text { min-width:0; }
+      .nav-links { width:100%; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; justify-content:stretch; }
+      .nav-links a { min-height:42px; display:flex; align-items:center; justify-content:center; text-align:center; }
       .hero { min-height:auto; border-radius:26px; }
       .hero-grid { min-height:auto; gap:28px; padding:28px 20px 26px; }
+      .hero-copy { max-width:none; padding:28px 22px 24px; border-radius:28px; }
+      .portrait-card { width:min(100%,280px); margin:0 auto; justify-self:center; }
       .hero-summary,.stats,.core-grid { grid-template-columns:1fr; }
+      .hero-highlights { display:grid; grid-template-columns:1fr; gap:10px; }
+      .hero-highlights span { width:100%; text-align:center; }
+      .profile-links { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
+      .profile-link { width:100%; min-width:0; justify-content:center; padding:10px 12px; }
+      .profile-link span { font-size:.84rem; }
       .content { margin-top:-10px; }
       .intro-main,.intro-side,.block { padding:32px 22px; }
-      .hero h1 { font-size:2.45rem; }
+      .hero h1 { font-size:2.45rem; line-height:.96; }
+      .headline { font-size:1rem; line-height:1.68; }
+      .section-title { font-size:1.28rem; }
+      .bio { font-size:.97rem; }
       .date { min-width:0; display:block; margin-bottom:6px; }
+      .timeline-item { padding-left:22px; }
+      .timeline-copy { font-size:.94rem; }
       .horizontal-scroller { min-height:220px; padding:14px; }
       .media-card.landscape { width:300px; min-width:300px; }
       .vertical-scroller { height:380px; padding:14px; }
       .archive-row { min-height:188px; }
       .archive-card { height:168px; padding:8px; }
       .archive-card img { max-width:280px; }
+      .publication-group + .publication-group { margin-top:28px; }
+      ol.pub-list { padding-left:20px; gap:14px; }
+      .group-label { width:100%; justify-content:center; text-align:center; }
+      .list-card ul { gap:9px; }
+      .tag-row { gap:6px; }
+    }
+    @media (max-width:520px) {
+      .brand-mark { width:34px; height:34px; font-size:.9rem; }
+      .brand-text strong { font-size:.94rem; }
+      .brand-text span { font-size:.78rem; }
+      .hero-grid { padding:22px 16px 22px; gap:22px; }
+      .hero-copy { padding:22px 18px 20px; }
+      .eyebrow { font-size:.7rem; letter-spacing:.1em; }
+      .hero h1 { font-size:2.1rem; }
+      .headline { font-size:.95rem; }
+      .hero-summary { gap:12px; margin-top:28px; }
+      .hero-stat { padding:14px 14px 13px; border-radius:18px; }
+      .hero-stat strong { font-size:2.05rem; }
+      .hero-stat span { font-size:.9rem; }
+      .profile-links,
+      .nav-links { grid-template-columns:1fr; }
+      .profile-link { min-height:42px; }
+      .portrait-card { width:min(100%,240px); padding:14px; border-radius:22px; }
+      .portrait-frame { border-radius:18px; }
+      .intro-main,.intro-side,.block { padding:26px 16px; }
+      .section-title { font-size:1.18rem; margin-bottom:16px; }
+      .section-title::before { width:10px; height:10px; box-shadow:0 0 0 5px rgba(10,132,255,.1); }
+      .bio { margin-bottom:22px; }
+      .research-inline { margin-top:26px; padding-top:24px; gap:16px; }
+      .core-grid { gap:12px; }
+      .core-card,.list-card,.meta-card,.stat-card { padding:15px 14px; border-radius:14px; }
+      .horizontal-scroller { min-height:206px; padding:12px; }
+      .media-card.landscape { width:260px; min-width:260px; border-radius:20px; }
+      .vertical-scroller { height:340px; padding:12px; }
+      .archive-row { min-height:168px; padding:10px 0; }
+      .archive-card { height:148px; border-radius:18px; }
+      .archive-card img { max-width:240px; }
+      .media-overlay { padding:12px 12px 12px; }
+      .media-overlay strong { font-size:.92rem; }
+      .media-overlay span { font-size:.8rem; }
+      .pub-authors { margin-bottom:6px; }
+      .doi-line { font-size:.84rem; }
+      .tag { font-size:.74rem; padding:4px 8px; }
     }
     @media print {
       body { background:#fff; color:#111; }
