@@ -1201,6 +1201,7 @@
   <script>
     (() => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isMobileFlow = window.matchMedia("(max-width: 760px)").matches;
 
       const archiveImages = [
         "hdphoto2.png", "hdphoto3.png",
@@ -1271,6 +1272,13 @@
         track.dataset.loopReady = "true";
       };
 
+      const trimTrackForMobile = (track, limit) => {
+        if (!isMobileFlow || !track || track.dataset.mobileTrimmed === "true") return;
+        const items = Array.from(track.children);
+        items.slice(limit).forEach((item) => item.remove());
+        track.dataset.mobileTrimmed = "true";
+      };
+
       const getLoopSize = (track, axis) => {
         if (!track) return 0;
         const boundaryIndex = Number(track.dataset.loopBoundaryIndex || 0);
@@ -1300,6 +1308,14 @@
 
       const registerScroller = (element, track, axis, direction, speed) => {
         if (!element || !track || element.dataset.motionReady === "true") return;
+
+        if (element.classList.contains("archive-row")) {
+          trimTrackForMobile(track, 4);
+        } else if (axis === "x") {
+          trimTrackForMobile(track, 3);
+        } else {
+          trimTrackForMobile(track, 4);
+        }
 
         duplicateTrack(track);
         const state = createState(element, track, axis, direction, speed);
