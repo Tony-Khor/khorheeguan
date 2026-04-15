@@ -336,6 +336,8 @@
     .visuals-block {
       position:relative;
       overflow:hidden;
+      content-visibility:auto;
+      contain-intrinsic-size:1100px;
     }
     .visuals-block .section-title,
     .visuals-block .section-lead {
@@ -415,6 +417,12 @@
     .archive-flow {
       display:grid;
       gap:18px;
+    }
+    .archive-block,
+    #publications,
+    #honors {
+      content-visibility:auto;
+      contain-intrinsic-size:900px;
     }
     .archive-row {
       min-height:238px;
@@ -1194,8 +1202,6 @@
     (() => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      if (prefersReducedMotion) return;
-
       const archiveImages = [
         "hdphoto2.png", "hdphoto3.png",
         "image12.png", "image14.png", "image22.png", "image23.png", "image24.png",
@@ -1203,8 +1209,18 @@
         "image34.png", "image35.png"
       ];
 
-      const archiveFlow = document.querySelector("#archive-flow");
-      if (archiveFlow) {
+      const markLazyImages = (root) => {
+        if (!root) return;
+        root.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+          img.decoding = "async";
+          img.fetchPriority = "low";
+        });
+      };
+
+      const buildArchiveFlow = () => {
+        const archiveFlow = document.querySelector("#archive-flow");
+        if (!archiveFlow || archiveFlow.dataset.built === "true") return;
+
         const laneCount = 3;
         const lanes = Array.from({ length: laneCount }, () => []);
         archiveImages.forEach((image, index) => {
@@ -1234,6 +1250,15 @@
             </div>
           </div>
         `).join("");
+        archiveFlow.dataset.built = "true";
+        markLazyImages(archiveFlow);
+      };
+
+      markLazyImages(document);
+
+      if (prefersReducedMotion) {
+        buildArchiveFlow();
+        return;
       }
 
       const duplicateTrack = (track) => {
@@ -1245,8 +1270,6 @@
         });
         track.dataset.loopReady = "true";
       };
-
-      document.querySelectorAll(".scroll-track-horizontal, .scroll-track-vertical, .archive-track").forEach(duplicateTrack);
 
       const getLoopSize = (track, axis) => {
         if (!track) return 0;
@@ -1272,26 +1295,51 @@
         };
       };
 
-      const states = [
-        ...Array.from(document.querySelectorAll(".visual-stack .horizontal-scroller"), (element, index) =>
-          createState(element, element.querySelector(".scroll-track-horizontal"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.024 : 0.022)),
-        ...Array.from(document.querySelectorAll(".vertical-scroller"), (element) =>
-          createState(element, element.querySelector(".scroll-track-vertical"), "y", 1, 0.018)),
-        ...Array.from(document.querySelectorAll(".archive-row"), (element, index) =>
-          createState(element, element.querySelector(".archive-track"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.02 : 0.018))
-      ];
+      const states = [];
+      let animationStarted = false;
 
-      states.forEach((state) => {
-        if (state.axis === "x") {
-          state.element.scrollLeft = state.position;
+      const registerScroller = (element, track, axis, direction, speed) => {
+        if (!element || !track || element.dataset.motionReady === "true") return;
+
+        duplicateTrack(track);
+        const state = createState(element, track, axis, direction, speed);
+        if (axis === "x") {
+          element.scrollLeft = state.position;
         } else {
-          state.element.scrollTop = state.position;
+          element.scrollTop = state.position;
         }
-        state.element.addEventListener("mouseenter", () => { state.paused = true; });
-        state.element.addEventListener("mouseleave", () => { state.paused = false; });
-        state.element.addEventListener("focusin", () => { state.paused = true; });
-        state.element.addEventListener("focusout", () => { state.paused = false; });
-      });
+
+        element.addEventListener("mouseenter", () => { state.paused = true; });
+        element.addEventListener("mouseleave", () => { state.paused = false; });
+        element.addEventListener("focusin", () => { state.paused = true; });
+        element.addEventListener("focusout", () => { state.paused = false; });
+
+        element.dataset.motionReady = "true";
+        states.push(state);
+      };
+
+      const initVisualFlow = () => {
+        const visuals = document.querySelector("#visuals");
+        if (!visuals || visuals.dataset.enhanced === "true") return;
+        markLazyImages(visuals);
+        Array.from(visuals.querySelectorAll(".visual-stack .horizontal-scroller")).forEach((element, index) => {
+          registerScroller(element, element.querySelector(".scroll-track-horizontal"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.024 : 0.022);
+        });
+        Array.from(visuals.querySelectorAll(".vertical-scroller")).forEach((element) => {
+          registerScroller(element, element.querySelector(".scroll-track-vertical"), "y", 1, 0.018);
+        });
+        visuals.dataset.enhanced = "true";
+      };
+
+      const initArchiveFlow = () => {
+        buildArchiveFlow();
+        const archive = document.querySelector("#archive");
+        if (!archive || archive.dataset.enhanced === "true") return;
+        Array.from(archive.querySelectorAll(".archive-row")).forEach((element, index) => {
+          registerScroller(element, element.querySelector(".archive-track"), "x", index % 2 === 0 ? 1 : -1, index % 2 === 0 ? 0.02 : 0.018);
+        });
+        archive.dataset.enhanced = "true";
+      };
 
       let lastTime = 0;
       const tick = (time) => {
@@ -1320,7 +1368,36 @@
         window.requestAnimationFrame(tick);
       };
 
-      window.requestAnimationFrame(tick);
+      const startAnimation = () => {
+        if (animationStarted) return;
+        animationStarted = true;
+        window.requestAnimationFrame(tick);
+      };
+
+      const setupDeferredSection = (selector, initFn) => {
+        const section = document.querySelector(selector);
+        if (!section) return;
+
+        if (!("IntersectionObserver" in window)) {
+          initFn();
+          startAnimation();
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            initFn();
+            startAnimation();
+            observer.unobserve(entry.target);
+          });
+        }, { rootMargin: "320px 0px" });
+
+        observer.observe(section);
+      };
+
+      setupDeferredSection("#visuals", initVisualFlow);
+      setupDeferredSection("#archive", initArchiveFlow);
     })();
   </script>
 </body>
