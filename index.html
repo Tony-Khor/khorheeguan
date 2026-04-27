@@ -18,6 +18,8 @@
       --line:rgba(255,255,255,.09); --brand:#f5f5f7; --brand-strong:#ffffff;
       --accent:#2997ff; --accent-soft:#a9d5ff; --shadow:0 30px 80px rgba(0,0,0,.32); --shadow-soft:0 18px 48px rgba(0,0,0,.2); --radius:34px;
       --content:1440px;
+      --cloud-a-x:0px; --cloud-a-y:0px; --cloud-b-x:0px; --cloud-b-y:0px; --cloud-c-x:0px; --cloud-c-y:0px;
+      --mountain-far-y:0px; --mountain-mid-y:0px; --mountain-near-y:0px; --mist-y:0px;
     }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -26,19 +28,17 @@
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       overflow-x:hidden;
       background:
-        radial-gradient(circle at 50% -10%, rgba(41,151,255,.22), transparent 26%),
-        radial-gradient(circle at 82% 14%, rgba(255,255,255,.08), transparent 18%),
-        linear-gradient(180deg, #000000 0%, #07080c 48%, #000000 100%);
+        linear-gradient(180deg, #02060c 0%, #07101a 44%, #020305 100%);
     }
     body::before {
-      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.12;
+      content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.045;
       background-image:
         linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
       background-size:72px 72px;
     }
     body::after {
-      content:""; position:fixed; inset:-10% -20%; z-index:-2; pointer-events:none; opacity:.18;
+      content:""; position:fixed; inset:-10% -20%; z-index:1; pointer-events:none; opacity:.14;
       background:
         radial-gradient(circle at 18% 22%, rgba(10,132,255,.1), transparent 20%),
         radial-gradient(circle at 78% 16%, rgba(255,255,255,.08), transparent 16%),
@@ -94,7 +94,92 @@
       font-family:"Consolas","Courier New",monospace; font-size:.92em;
       padding:.12em .4em; border-radius:6px; background:rgba(255,255,255,.06);
     }
-    .page { width:min(calc(100% - 32px), var(--content)); margin:16px auto 104px; }
+    .landscape-scene {
+      position:fixed;
+      inset:0;
+      z-index:0;
+      overflow:hidden;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 52% 8%, rgba(255,255,255,.18), transparent 10%),
+        radial-gradient(circle at 18% 18%, rgba(135,196,255,.2), transparent 24%),
+        linear-gradient(180deg, #dceeff 0%, #9bbbd2 18%, #31506b 44%, #09131f 78%, #020305 100%);
+    }
+    .landscape-scene::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.38) 62%, rgba(0,0,0,.92)),
+        radial-gradient(circle at 50% 82%, rgba(41,151,255,.18), transparent 28%);
+    }
+    .cloud {
+      position:absolute;
+      width:44vw;
+      max-width:640px;
+      min-width:280px;
+      height:9vw;
+      min-height:62px;
+      border-radius:999px;
+      opacity:.38;
+      filter:blur(10px);
+      background:
+        radial-gradient(circle at 18% 52%, rgba(255,255,255,.86), transparent 28%),
+        radial-gradient(circle at 42% 35%, rgba(255,255,255,.7), transparent 32%),
+        radial-gradient(circle at 72% 58%, rgba(255,255,255,.58), transparent 34%);
+      mix-blend-mode:screen;
+      will-change:transform;
+    }
+    .cloud-a { top:12%; left:-8%; transform:translate3d(var(--cloud-a-x), var(--cloud-a-y), 0); }
+    .cloud-b { top:25%; right:-12%; transform:translate3d(var(--cloud-b-x), var(--cloud-b-y), 0) scale(.86); opacity:.28; }
+    .cloud-c { top:39%; left:32%; transform:translate3d(var(--cloud-c-x), var(--cloud-c-y), 0) scale(.72); opacity:.22; }
+    .mountain-layer {
+      position:absolute;
+      left:-10%;
+      width:120%;
+      clip-path:polygon(0 78%, 8% 58%, 16% 70%, 27% 38%, 36% 66%, 48% 30%, 58% 62%, 70% 42%, 82% 68%, 92% 48%, 100% 76%, 100% 100%, 0 100%);
+      will-change:transform;
+    }
+    .mountain-far {
+      bottom:24vh;
+      height:34vh;
+      opacity:.66;
+      transform:translate3d(0, var(--mountain-far-y), 0);
+      background:linear-gradient(180deg, rgba(108,146,167,.62), rgba(36,68,91,.78));
+      filter:blur(.5px);
+    }
+    .mountain-mid {
+      bottom:9vh;
+      height:44vh;
+      opacity:.82;
+      transform:translate3d(0, var(--mountain-mid-y), 0);
+      background:linear-gradient(180deg, rgba(42,82,106,.9), rgba(13,31,47,.95));
+      clip-path:polygon(0 82%, 10% 42%, 19% 68%, 29% 28%, 41% 72%, 52% 36%, 63% 64%, 76% 24%, 88% 68%, 100% 38%, 100% 100%, 0 100%);
+    }
+    .mountain-near {
+      bottom:-8vh;
+      height:48vh;
+      opacity:.96;
+      transform:translate3d(0, var(--mountain-near-y), 0);
+      background:linear-gradient(180deg, rgba(18,45,61,.95), rgba(1,8,13,.98));
+      clip-path:polygon(0 76%, 9% 54%, 18% 72%, 31% 34%, 43% 70%, 57% 44%, 66% 62%, 79% 30%, 91% 68%, 100% 52%, 100% 100%, 0 100%);
+    }
+    .landscape-mist {
+      position:absolute;
+      left:-10%;
+      right:-10%;
+      bottom:18vh;
+      height:22vh;
+      transform:translate3d(0, var(--mist-y), 0);
+      opacity:.58;
+      filter:blur(16px);
+      will-change:transform;
+      background:
+        radial-gradient(ellipse at 28% 50%, rgba(226,241,255,.34), transparent 42%),
+        radial-gradient(ellipse at 70% 54%, rgba(190,220,242,.26), transparent 44%),
+        linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+    }
+    .page { position:relative; z-index:2; width:min(calc(100% - 32px), var(--content)); margin:16px auto 104px; }
     .site-nav {
       position:sticky; top:14px; z-index:20; display:flex; justify-content:space-between;
       align-items:center; gap:18px; margin-bottom:20px; padding:10px 14px;
@@ -124,25 +209,26 @@
     .hero {
       position:relative; overflow:hidden; min-height:760px; isolation:isolate;
       border-radius:40px; border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow);
-      background:#000;
+      background:linear-gradient(135deg, rgba(3,7,12,.7), rgba(10,13,18,.56));
+      backdrop-filter:blur(18px) saturate(1.08);
     }
     .hero::before {
       content:""; position:absolute; inset:-8%; pointer-events:none; z-index:0;
       background:
-        radial-gradient(circle at 18% 28%, rgba(8,12,20,.28), transparent 30%),
-        url("pic/web/background.jpg") center/cover no-repeat;
+        radial-gradient(circle at 76% 24%, rgba(255,255,255,.16), transparent 18%),
+        radial-gradient(circle at 20% 78%, rgba(41,151,255,.16), transparent 28%),
+        linear-gradient(120deg, rgba(255,255,255,.04), transparent 44%);
       transform:scale(1.08);
       animation:hero-pan 24s ease-in-out infinite alternate;
-      filter:brightness(.38) saturate(1.05) contrast(1.1);
+      filter:saturate(1.05);
     }
     .hero::after {
       content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen;
       background:
-        radial-gradient(circle at 50% 12%, rgba(255,255,255,.18), transparent 12%),
-        linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.64) 44%, rgba(0,0,0,.92) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,.34) 50%, rgba(0,0,0,.68) 100%),
         linear-gradient(120deg, rgba(255,255,255,.045), transparent 34%, rgba(41,151,255,.08) 74%, transparent 100%),
-        radial-gradient(circle at 78% 18%, rgba(255,255,255,.18), transparent 18%),
-        radial-gradient(circle at 22% 78%, rgba(41,151,255,.2), transparent 20%),
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 22% 78%, rgba(41,151,255,.18), transparent 20%),
         linear-gradient(180deg, rgba(255,255,255,.03), transparent 30%);
     }
     .hero-grid {
@@ -295,8 +381,9 @@
       padding:76px 70px 72px;
       border-radius:36px;
       border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(20,22,28,.9), rgba(10,11,15,.96));
+      background:linear-gradient(180deg, rgba(18,22,28,.82), rgba(8,10,15,.88));
       box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(18px) saturate(1.06);
     }
     .section-title {
       margin:0 0 28px; display:flex; align-items:center; justify-content:center; gap:12px;
@@ -920,13 +1007,22 @@
     }
     @media print {
       body { background:#fff; color:#111; }
-      body::before,.site-nav,.footer { display:none; }
+      body::before,.site-nav,.footer,.landscape-scene { display:none; }
       .page { width:100%; margin:0; }
       .hero,.panel { box-shadow:none; }
     }
   </style>
 </head>
 <body>
+  <div class="landscape-scene" aria-hidden="true">
+    <div class="cloud cloud-a"></div>
+    <div class="cloud cloud-b"></div>
+    <div class="cloud cloud-c"></div>
+    <div class="mountain-layer mountain-far"></div>
+    <div class="landscape-mist"></div>
+    <div class="mountain-layer mountain-mid"></div>
+    <div class="mountain-layer mountain-near"></div>
+  </div>
   <main class="page">
     <nav class="site-nav" aria-label="Primary">
       <div class="brand-lockup">
@@ -1467,6 +1563,7 @@
     (() => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isMobileFlow = window.matchMedia("(max-width: 760px)").matches;
+      const root = document.documentElement;
 
       const archiveImages = [
         "hdphoto2.png", "hdphoto3.png",
@@ -1526,6 +1623,36 @@
         buildArchiveFlow();
         return;
       }
+
+      const setupLandscapeParallax = () => {
+        let ticking = false;
+        const updateLandscape = () => {
+          const y = window.scrollY || root.scrollTop || 0;
+          root.style.setProperty("--cloud-a-x", `${y * -0.14}px`);
+          root.style.setProperty("--cloud-a-y", `${y * 0.035}px`);
+          root.style.setProperty("--cloud-b-x", `${y * 0.1}px`);
+          root.style.setProperty("--cloud-b-y", `${y * 0.055}px`);
+          root.style.setProperty("--cloud-c-x", `${y * -0.2}px`);
+          root.style.setProperty("--cloud-c-y", `${y * 0.075}px`);
+          root.style.setProperty("--mountain-far-y", `${y * 0.025}px`);
+          root.style.setProperty("--mountain-mid-y", `${y * 0.055}px`);
+          root.style.setProperty("--mountain-near-y", `${y * 0.095}px`);
+          root.style.setProperty("--mist-y", `${y * 0.04}px`);
+          ticking = false;
+        };
+
+        const requestUpdate = () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(updateLandscape);
+        };
+
+        updateLandscape();
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate, { passive: true });
+      };
+
+      setupLandscapeParallax();
 
       const duplicateTrack = (track) => {
         if (!track || track.dataset.loopReady === "true") return;
