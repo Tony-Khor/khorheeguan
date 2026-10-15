@@ -243,12 +243,13 @@
       .hero-grid { gap: 40px; }
       .hero-copy { flex-basis: 380px; }
       .hero-media { flex-basis: 280px; }
-      .now-card { margin-left: 12px; }
+      .now-card { display: none; }
     }
     @media (max-width: 720px) {
       .hero-media { order: -1; flex-basis: 100%; }
       .hero-actions .btn-outline { padding: 0 12px; gap: 7px; font-size: 14px; }
-      .portrait { aspect-ratio: 1 / 1; max-height: 420px; }
+      .portrait { aspect-ratio: 4 / 5; max-height: 500px; }
+      .now-card { display: none; }
       .hero-actions .btn { flex: 1 1 calc(50% - 6px); }
       .hero-actions .btn-primary { flex-basis: 100%; }
     }
